@@ -18,6 +18,9 @@ public class Book {
     @JoinTable(name="author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> authors;
 
+    @ManyToOne
+    private Publisher publishier;
+
     public Long getId() {
         return id;
     }
@@ -48,6 +51,14 @@ public class Book {
 
     public void setAuthors(Set<Author> authors) {
         this.authors = authors;
+    }
+
+    public Publisher getPublishier() {
+        return publishier;
+    }
+
+    public void setPublishier(Publisher publishier) {
+        this.publishier = publishier;
     }
 
     @Override
